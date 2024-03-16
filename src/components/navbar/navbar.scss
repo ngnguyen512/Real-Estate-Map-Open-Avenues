@@ -1,0 +1,107 @@
+@import '../../app/responsive.scss';
+nav {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a{
+        transition: all 0.4s ease;
+        @include sm{
+            display: none;
+
+        }
+        &:hover {
+            scale: 1.1;
+    }
+    }
+}
+.resize-image {
+    font-weight: bold;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    Image{
+       width: 35px; 
+    }
+    span{
+        @include md{
+            display: none;
+        }
+        @include sm{
+            display: initial;
+        }
+    }
+
+}
+.left{
+    flex: 3;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.right {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 50px;
+    background-color: rgb(232, 220, 198) ;
+    height: 100%;
+    @include md{
+        background-color: transparent;
+    }
+    a{
+        padding: 12px 20px;
+        margin: 20px;
+    }
+    .sign-up {
+        background-color: yellow;
+        border-radius: 10px ;
+    }
+    .menuIcon {
+        display: none;
+        z-index: 999;
+
+        Image{
+           width: 36px;
+           height: 36px;
+           cursor: pointer;
+        }
+
+        @include sm{
+            display: inline;
+        }
+    }   
+    .menu{
+        position: absolute;
+        top: 0;
+        right: -50%;
+        background-color: black;
+        color: white;
+        height: 100vh;
+        width: 50%; 
+        transition: all 1s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        &.active{
+            right: 0;
+        }
+        @include sm{
+            a{
+                display: initial;
+            }
+        }
+    }
+
+}
+
+
+
+
+
+    
+    
