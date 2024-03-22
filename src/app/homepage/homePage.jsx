@@ -3,7 +3,7 @@ import './homePage.scss'
 import SearchBar from '../../components/searchBar.client/SearchBar.client'
 import Image from 'next/image';
 import BigMap from '../../components/map/map';
-
+import TaxAssessors from '../../components/AppoloClient/Appoloclient';
 function HomePage(){
     return (
         <div className='homePage'>
@@ -32,6 +32,10 @@ function HomePage(){
             <div className='map'>
                 <BigMap/>
             </div>
+            <div className='taxAssessors'>
+                <TaxAssessors/>
+            </div>
+
         </div>
     )
 }

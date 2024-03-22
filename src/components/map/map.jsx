@@ -10,7 +10,6 @@ import Map, {
 import ControlPanel from './control-panel';
 
 import Pin from './pin';
-
 import CITIES from '../../app/data/cities';
 import Image from 'next/image';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -19,6 +18,7 @@ const TOKEN = 'pk.eyJ1Ijoic3ZheXNlciIsImEiOiJjbGgwbzl5NXcwdmMzM2VwdTkya2J6cDVmIn
 
 export default function BigMap() {
   const [popupInfo, setPopupInfo] = useState(null);
+  
 
   const pins = useMemo(
     () =>
@@ -40,7 +40,7 @@ export default function BigMap() {
       )),
     []
   );
-
+  const [mapStyle, setMapStyle] = useState(null);
   return (
     <>
       <Map
@@ -51,7 +51,8 @@ export default function BigMap() {
           bearing: 0,
           pitch: 0
         }}
-        mapStyle="mapbox://styles/mapbox/streets-v12"
+        mapStyle={mapStyle && mapStyle.toJS()}
+        styleDiffing
         mapboxAccessToken={TOKEN}
       >
         {pins}
@@ -76,7 +77,7 @@ export default function BigMap() {
           </Popup>
         )}
       </Map>
-      <ControlPanel />
+      <ControlPanel onChange={setMapStyle}/>
     </>
   );
 }
@@ -84,3 +85,4 @@ export default function BigMap() {
 export function renderToDom(container) {
   createRoot(container).render(<BigMap />);
 }
+
